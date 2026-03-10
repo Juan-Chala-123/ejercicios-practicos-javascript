@@ -28,3 +28,14 @@ function contador() {
     clics++
     document.getElementById("clic").innerHTML="Clics: " + clics
 }
+
+// 5. Lista dinámica
+function lista() {
+    let text = document.getElementById("text").value
+
+    let listItem = document.createElement("li")
+    listItem.textContent = text
+
+    let p = document.getElementById("tarea")
+    p.appendChild(listItem);
+}

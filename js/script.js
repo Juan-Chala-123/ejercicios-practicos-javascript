@@ -39,3 +39,24 @@ function lista() {
     let p = document.getElementById("tarea")
     p.appendChild(listItem);
 }
+
+// 6. Validación de formulario
+function formulario() {
+    let name = document.getElementById("name").value
+    let email = document.getElementById("email").value
+    let age = document.getElementById("age").value
+    if(name == "" || email == "" || age == "") {
+        alert("No pueden haber campos vacios.")
+    } else {
+        let listItem = document.createElement("li")
+        listItem.textContent = "Nombre: " + name + " | Correo: " + email + " | Edad: " + age
+    
+        let p = document.getElementById("formulario")
+        p.appendChild(listItem)
+
+        document.getElementById("name").value = ""
+        document.getElementById("email").value = ""
+        document.getElementById("age").value = ""
+    }
+
+}

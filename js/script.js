@@ -1,3 +1,7 @@
+// Variable del ejercicio de contador de clics
+let clics = 0;
+const { createElement } = require("react");
+
 // 1. Mostrar texto en pantalla
 function mensaje() {
     var mensaje = document.getElementById("resultado")
@@ -17,4 +21,10 @@ function sumar() {
 function cambiarColor(boton) {
     let color = boton.value;
     document.body.style.backgroundColor = color;
+}
+
+// 4. Contador de clics
+function contador() {
+    clics++
+    document.getElementById("clic").innerHTML="Clics: " + clics
 }

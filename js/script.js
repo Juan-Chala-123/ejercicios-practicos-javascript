@@ -12,3 +12,9 @@ function sumar() {
     document.getElementById("resultadoSuma").innerHTML = "Suma: " + resultado;
     // suma.innerHTML = "La suma es " + (resultado);
 }
+
+// 3. Cambiar color de fondo
+function cambiarColor(boton) {
+    let color = boton.value;
+    document.body.style.backgroundColor = color;
+}

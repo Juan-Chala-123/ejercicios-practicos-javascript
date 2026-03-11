@@ -91,3 +91,23 @@ function calculadora(boton) {
     let result = document.getElementById("resultadoCalculadora")
     result.appendChild(resultado)
 }
+
+// 8. Eliminación de elementos de lista
+function lista2() {
+    let text2 = document.getElementById("text2").value
+
+    let listItem = document.createElement("li")
+    listItem.textContent = text2 + " "
+
+    let btnEliminar = document.createElement("button")
+    btnEliminar.textContent = "Eliminar"
+
+    btnEliminar.onclick = function() {
+        listItem.remove();
+    }
+
+    listItem.appendChild(btnEliminar)
+
+    let lista = document.getElementById("tareas")
+    lista.appendChild(listItem);
+}

@@ -1,6 +1,5 @@
 // Variable del ejercicio de contador de clics
 let clics = 0;
-const { createElement } = require("react");
 
 // 1. Mostrar texto en pantalla
 function mensaje() {
@@ -58,5 +57,37 @@ function formulario() {
         document.getElementById("email").value = ""
         document.getElementById("age").value = ""
     }
+}
 
+// 7. Calculadora básica
+function calculadora(boton) {
+    let operacion = boton.value;
+    let nume1 = Number(document.getElementById("nume1").value)
+    let nume2 = Number(document.getElementById("nume2").value)
+    let resultado = document.createElement("p");
+
+    switch(operacion) {
+        case "Sumar":
+            resultado.textContent =  nume1 + " + " + nume2 + " = " + (nume1+nume2)
+            break;
+
+        case "Restar":
+            resultado.textContent =  nume1 + " - " + nume2 + " = " + (nume1-nume2)
+            break;
+
+        case "Dividir":
+            if (nume2 == 0) {
+                alert("No se puede dividir entre cero");
+                return;
+            }
+            resultado.textContent =  nume1 + " / " + nume2 + " = " + (nume1/nume2)
+            break;
+
+        case "Multiplicar":
+            resultado.textContent =  nume1 + " x " + nume2 + " = " + (nume1*nume2)
+            break;
+    }
+
+    let result = document.getElementById("resultadoCalculadora")
+    result.appendChild(resultado)
 }

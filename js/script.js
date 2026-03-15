@@ -1,5 +1,8 @@
 // Variable del ejercicio de contador de clics
 let clics = 0;
+// Variables del ejericio 9 de temporizador
+let intervalo;
+let tiempo = 0;
 
 // 1. Mostrar texto en pantalla
 function mensaje() {
@@ -20,6 +23,7 @@ function sumar() {
 function cambiarColor(boton) {
     let color = boton.value;
     document.body.style.backgroundColor = color;
+    document.body.style.color = "white";
 }
 
 // 4. Contador de clics
@@ -110,4 +114,44 @@ function lista2() {
 
     let lista = document.getElementById("tareas")
     lista.appendChild(listItem);
+}
+
+// 9. Temporizador
+function iniciar() {
+
+    if (intervalo) return; // evita múltiples intervalos
+
+    intervalo = setInterval(function() {
+
+        tiempo++;
+
+        let minutos = Math.floor(tiempo / 6000);
+        let segundos = Math.floor((tiempo % 6000) / 100);
+        let milisegundos = tiempo % 100;
+
+        document.getElementById("tiempo").textContent =
+            formatear(minutos) + ":" +
+            formatear(segundos) + ":" +
+            formatear(milisegundos);
+
+    }, 10);
+}
+
+function pausar() {
+    clearInterval(intervalo);
+    intervalo = null;
+}
+
+function reiniciar() {
+
+    clearInterval(intervalo);
+    intervalo = null;
+
+    tiempo = 0;
+
+    document.getElementById("tiempo").textContent = "00:00:00";
+}
+
+function formatear(valor) {
+    return valor < 10 ? "0" + valor : valor;
 }
